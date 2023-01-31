@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using static System.Formats.Asn1.AsnWriter;
 
 
 namespace Assignment6
@@ -33,7 +34,10 @@ namespace Assignment6
             sortedList.PrintList();
 
             //Quick sort for Generics
-
+            //Quick sort with LINQ
+            Console.Write("QuickSort with List and Linq.\n");
+            List<int> sortedList2 = QuickSortLin(original_list);
+            sortedList2.PrintList();
 
             //Old Quick Sort to complicated
             Console.Write("QuickSort with Comparison.\n");
@@ -75,6 +79,22 @@ namespace Assignment6
             if (i < right)
                 QuickSortInt(list, i, right);
             return list;
+
+        }
+        //More complex Quick Sort forwith Linq 
+        public static List<int> QuickSortLin(List<int> list)
+        {
+            
+            if (list.Count <= 1)
+                return list;
+
+            int _pivot = list[0];
+
+            List<int> _less = (from _item in list where _item < _pivot select _item).ToList();
+            List<int> _same = (from _item in list where _item == _pivot select _item).ToList();
+            List<int> _greater = (from _item in list where _item > _pivot select _item).ToList();
+
+            return (QuickSortLin(_less).Concat(_same.Concat(QuickSortLin(_greater)))).ToList();
 
         }
         //More complex Quick Sort for Generics 
