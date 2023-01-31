@@ -6,10 +6,10 @@ namespace Assignment06_ProSE
 {
 	public class Quicksort
 	{
-        // 1. make the quicksort algorithm which takes intger List as a parameter
+		// 1. make the quicksort algorithm which takes intger List as a parameter
 
-        static int Partition(int[] array, int start_index, int end_index)
-        {
+		public static int[] SortArray(int[] array, int start_index, int end_index)
+		{
 			int pivot, temp;
 			int low, high;
 
@@ -21,12 +21,12 @@ namespace Assignment06_ProSE
 			while (low <= high)
 			{
 				//go to right direction
-				while (array[low] <= pivot)
+				while (array[low] < pivot)
 				{
 					low++;
 				}
 				//go to left dirction
-				while (array[high] >= pivot)
+				while (array[high] > pivot)
 				{
 					high--;
 				}
@@ -35,36 +35,24 @@ namespace Assignment06_ProSE
 				// and still indices not corss, Swap both
 				if (low <= high)
 				{
-					Swap(array[low], array[high]);
+					temp = array[low];
+					array[low] = array[high];
+					array[high] = temp;
 					low++;
 					high--;
 				}
-            }
-            Swap(array[low], array[high]);
-
-			return high;
-        }
-
-		private static void Swap(int x, int y)
-		{
-			int temp;
-			temp = x;
-			x = y;
-			y = temp; 
-		}
-
-		public static void quick_sort(int[] array, int left_index, int right_index)
-		{
-			//length of the list to sort 
-			if(left_index < right_index)
-			{
-				int pivot_position = Partition(array, left_index, right_index);
-
-				//recursion
-				quick_sort(array, left_index, pivot_position-1);
-				quick_sort(array, pivot_position+1, right_index);
 			}
+
+			if (start_index < high)
+				SortArray(array, start_index, high);
+			if (low < end_index)
+				SortArray(array, low, end_index);
+			return array;
 		}
+
+	
+
+		
 
         // 2. Generallize the quicksort with a generic list
         public static void DoSort<T>(List<T> values)

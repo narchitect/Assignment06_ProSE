@@ -1,0 +1,15 @@
+C:\Users\Anwender\Documents\GitHub\Assignment06_ProSE\Assignment06_ProSE\bin\Debug\net7.0\Assignment06_ProSE.exe
+C:\Users\Anwender\Documents\GitHub\Assignment06_ProSE\Assignment06_ProSE\bin\Debug\net7.0\Assignment06_ProSE.deps.json
+C:\Users\Anwender\Documents\GitHub\Assignment06_ProSE\Assignment06_ProSE\bin\Debug\net7.0\Assignment06_ProSE.runtimeconfig.json
+C:\Users\Anwender\Documents\GitHub\Assignment06_ProSE\Assignment06_ProSE\bin\Debug\net7.0\Assignment06_ProSE.dll
+C:\Users\Anwender\Documents\GitHub\Assignment06_ProSE\Assignment06_ProSE\bin\Debug\net7.0\Assignment06_ProSE.pdb
+C:\Users\Anwender\Documents\GitHub\Assignment06_ProSE\Assignment06_ProSE\obj\Debug\net7.0\Assignment06_ProSE.csproj.AssemblyReference.cache
+C:\Users\Anwender\Documents\GitHub\Assignment06_ProSE\Assignment06_ProSE\obj\Debug\net7.0\Assignment06_ProSE.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Anwender\Documents\GitHub\Assignment06_ProSE\Assignment06_ProSE\obj\Debug\net7.0\Assignment06_ProSE.AssemblyInfoInputs.cache
+C:\Users\Anwender\Documents\GitHub\Assignment06_ProSE\Assignment06_ProSE\obj\Debug\net7.0\Assignment06_ProSE.AssemblyInfo.cs
+C:\Users\Anwender\Documents\GitHub\Assignment06_ProSE\Assignment06_ProSE\obj\Debug\net7.0\Assignment06_ProSE.csproj.CoreCompileInputs.cache
+C:\Users\Anwender\Documents\GitHub\Assignment06_ProSE\Assignment06_ProSE\obj\Debug\net7.0\Assignment06_ProSE.dll
+C:\Users\Anwender\Documents\GitHub\Assignment06_ProSE\Assignment06_ProSE\obj\Debug\net7.0\refint\Assignment06_ProSE.dll
+C:\Users\Anwender\Documents\GitHub\Assignment06_ProSE\Assignment06_ProSE\obj\Debug\net7.0\Assignment06_ProSE.pdb
+C:\Users\Anwender\Documents\GitHub\Assignment06_ProSE\Assignment06_ProSE\obj\Debug\net7.0\Assignment06_ProSE.genruntimeconfig.cache
+C:\Users\Anwender\Documents\GitHub\Assignment06_ProSE\Assignment06_ProSE\obj\Debug\net7.0\ref\Assignment06_ProSE.dll
