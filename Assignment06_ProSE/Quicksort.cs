@@ -23,9 +23,12 @@ namespace Assignment06_ProSE
 			Comparison<T> Comparer = new Comparison<T>(CompareToPivot);
 			result.Sort(Comparer);
 
+			foreach (T item in result)
+				Console.WriteLine(item);
+
 			return result;
 		}
-		public static List<int> QSLinq(List<int> numbers)
+		public static List<int> SortArray(List<int> numbers)
 		{
 			List<int> result = new List<int>();
 
@@ -38,16 +41,9 @@ namespace Assignment06_ProSE
 			List<int> same = (from num in numbers where num == pivot select num).ToList();
 			List<int> greater = (from num in numbers where num > pivot select num).ToList();
 
-			result = QSLinq(less).Concat(QSLinq(same)).Concat(QSLinq(greater)).ToList();
-
+			result = SortArray(less).Concat(SortArray(same)).Concat(SortArray(greater)).ToList();
+            
 			return result;
-		}
-
-
-		// 3. Print out the elements of the list
-		public static void PrintOut<T>(List<T> values)
-		{
-
 		}
 	}
 }
