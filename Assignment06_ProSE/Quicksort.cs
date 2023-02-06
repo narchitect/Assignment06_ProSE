@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace Assignment06_ProSE
 {
-	public class Quicksort
+	public static class Quicksort
 	{
 		private static int CompareToPivot<T>(T num, T pivot) 
         {
@@ -17,18 +17,17 @@ namespace Assignment06_ProSE
 				return -1;
         }
 
-        public static List<T> SortArray<T>(List<T> array)
+        public static List<T> SortArray<T>(this List<T> array)
 		{
 			List<T> result = array;
 			Comparison<T> Comparer = new Comparison<T>(CompareToPivot);
 			result.Sort(Comparer);
 
-			foreach (T item in result)
-				Console.WriteLine(item);
+			
 
 			return result;
 		}
-		public static List<int> SortArray(List<int> numbers)
+		public static List<int> SortArray(this List<int> numbers)
 		{
 			List<int> result = new List<int>();
 
@@ -45,6 +44,13 @@ namespace Assignment06_ProSE
             
 			return result;
 		}
-	}
+
+		public static void Print<T>(this List<T> results)
+		{
+            foreach (T item in results)
+                Console.WriteLine(item);
+        }
+
+    }
 }
 
