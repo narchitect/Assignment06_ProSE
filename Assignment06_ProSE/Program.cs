@@ -16,7 +16,7 @@ namespace Assignment06_ProSE
 
             // 2. Testing the generalised QuickSort Method
             List<double> testset2 = new List<double> { 1.2, 3.2, 5.2, 1.5, 8.4 };
-            var result2 = testset2.SortArray();
+            var result2 = testset2.SortArray(0, testset2.Count()-1);
             result2.Print();
 
         }

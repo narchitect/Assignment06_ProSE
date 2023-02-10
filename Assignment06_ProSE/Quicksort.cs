@@ -17,16 +17,17 @@ namespace Assignment06_ProSE
 				return -1;
         }
 
-        public static List<T> SortArray<T>(this List<T> array)
-		{
-			List<T> result = array;
-			Comparison<T> Comparer = new Comparison<T>(CompareToPivot);
-			result.Sort(Comparer);
+  //      public static List<T> SortArray<T>(this List<T> array)
+		//{
+		//	List<T> result = array;
+		//	Comparison<T> Comparer = new Comparison<T>(CompareToPivot);
+            
+		//	result.Sort(Comparer);
 
 			
 
-			return result;
-		}
+		//	return result;
+		//}
 		public static List<int> SortArray(this List<int> numbers)
 		{
 			List<int> result = new List<int>();
@@ -51,6 +52,45 @@ namespace Assignment06_ProSE
                 Console.WriteLine(item);
         }
 
+
+        public static List<T> SortArray<T>(this List<T> array, int start_index, int end_index)
+        {
+            T pivot, temp;
+            int low, high;
+
+            low = start_index;
+            high = end_index;
+            pivot = array[start_index];
+
+            while (low <= high)
+            {
+
+                while (CompareToPivot(array[low] , pivot) < 0)
+                {
+                    low++;
+                }
+
+                while (CompareToPivot(array[high], pivot ) > 0)  
+                {
+                    high--;
+                }
+
+                if (low <= high)
+                {
+                    temp = array[low];
+                    array[low] = array[high];
+                    array[high] = temp;
+                    low++;
+                    high--;
+                }
+            }
+
+            if (start_index < high)
+                SortArray(array, start_index, high);
+            if (low < end_index)
+                SortArray(array, low, end_index);
+            return array;
+        }
     }
 }
 
