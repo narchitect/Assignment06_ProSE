@@ -16,19 +16,12 @@ namespace Assignment06_ProSE
             else
 				return -1;
         }
-
-  //      public static List<T> SortArray<T>(this List<T> array)
-		//{
-		//	List<T> result = array;
-		//	Comparison<T> Comparer = new Comparison<T>(CompareToPivot);
-            
-		//	result.Sort(Comparer);
-
-			
-
-		//	return result;
-		//}
-		public static List<int> SortArray(this List<int> numbers)
+        public static void Print<T>(this List<T> results)
+        {
+            foreach (T item in results)
+                Console.WriteLine(item);
+        }
+        public static List<int> SortArray(this List<int> numbers)
 		{
 			List<int> result = new List<int>();
 
@@ -45,14 +38,6 @@ namespace Assignment06_ProSE
             
 			return result;
 		}
-
-		public static void Print<T>(this List<T> results)
-		{
-            foreach (T item in results)
-                Console.WriteLine(item);
-        }
-
-
         public static List<T> SortArray<T>(this List<T> array, int start_index, int end_index)
         {
             T pivot, temp;
@@ -64,7 +49,6 @@ namespace Assignment06_ProSE
 
             while (low <= high)
             {
-
                 while (CompareToPivot(array[low] , pivot) < 0)
                 {
                     low++;
@@ -84,13 +68,21 @@ namespace Assignment06_ProSE
                     high--;
                 }
             }
-
             if (start_index < high)
                 SortArray(array, start_index, high);
             if (low < end_index)
                 SortArray(array, low, end_index);
+
             return array;
         }
+
+        //public static List<T> SortArray<T>(this List<T> array)
+        //{
+        //	List<T> result = array;
+        //	Comparison<T> Comparer = new Comparison<T>(CompareToPivot);
+        //	result.Sort(Comparer);
+        //	return result;
+        //}
     }
 }
 
