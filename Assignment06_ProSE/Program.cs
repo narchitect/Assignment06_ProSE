@@ -1,5 +1,4 @@
 ﻿using System;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Assignment06_ProSE
 {
@@ -7,6 +6,7 @@ namespace Assignment06_ProSE
     {
         static void Main(string[] args)
         {
+
             // 1. Testing the orignial QuickSort Method
             List<int> testset1= new List<int> { 1, 6, 2, 4, 3, 7, 9, 16, 11, 10, 5 };
             var result1 = testset1.SortArray();
