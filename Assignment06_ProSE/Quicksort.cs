@@ -7,15 +7,6 @@ namespace Assignment06_ProSE
 {
     public static class Quicksort
     {
-        private static int CompareToPivot<T>(T num, T pivot)
-        {
-            if (Comparer<T>.Default.Compare(num, pivot) > 0)
-                return 1;
-            else if (Comparer<T>.Default.Compare(num, pivot) == 0)
-                return 0;
-            else
-                return -1;
-        }
         public static void Print<T>(this List<T> results)
         {
             foreach (T item in results)
