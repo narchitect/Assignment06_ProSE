@@ -5,16 +5,16 @@ using System.Xml.Linq;
 
 namespace Assignment06_ProSE
 {
-	public static class Quicksort
-	{
-		private static int CompareToPivot<T>(T num, T pivot) 
+    public static class Quicksort
+    {
+        private static int CompareToPivot<T>(T num, T pivot)
         {
-			if (Comparer<T>.Default.Compare(num, pivot) > 0) 
-				return 1;
-			else if (Comparer<T>.Default.Compare(num, pivot) == 0)
-				return 0;
+            if (Comparer<T>.Default.Compare(num, pivot) > 0)
+                return 1;
+            else if (Comparer<T>.Default.Compare(num, pivot) == 0)
+                return 0;
             else
-				return -1;
+                return -1;
         }
         public static void Print<T>(this List<T> results)
         {
@@ -22,67 +22,59 @@ namespace Assignment06_ProSE
                 Console.WriteLine(item);
         }
         public static List<int> SortArray(this List<int> numbers)
-		{
-			List<int> result = new List<int>();
-
-			if (numbers.Count <= 1)
-				return numbers;
-
-			int pivot = numbers[0];
-
-			List<int> less = (from num in numbers where num < pivot select num).ToList();
-			List<int> same = (from num in numbers where num == pivot select num).ToList();
-			List<int> greater = (from num in numbers where num > pivot select num).ToList();
-
-			result = SortArray(less).Concat(SortArray(same)).Concat(SortArray(greater)).ToList();
-            
-			return result;
-		}
-        public static List<T> SortArray<T>(this List<T> array, int start_index, int end_index)
         {
-            T pivot, temp;
-            int low, high;
+            List<int> result = new List<int>();
 
-            low = start_index;
-            high = end_index;
-            pivot = array[start_index];
+            if (numbers.Count <= 1)
+                return numbers;
 
-            while (low <= high)
-            {
-                while (CompareToPivot(array[low] , pivot) < 0)
-                {
-                    low++;
-                }
+            int pivot = numbers[0];
 
-                while (CompareToPivot(array[high], pivot ) > 0)  
-                {
-                    high--;
-                }
+            List<int> less = (from num in numbers where num < pivot select num).ToList();
+            List<int> same = (from num in numbers where num == pivot select num).ToList();
+            List<int> greater = (from num in numbers where num > pivot select num).ToList();
 
-                if (low <= high)
-                {
-                    temp = array[low];
-                    array[low] = array[high];
-                    array[high] = temp;
-                    low++;
-                    high--;
-                }
-            }
-            if (start_index < high)
-                SortArray(array, start_index, high);
-            if (low < end_index)
-                SortArray(array, low, end_index);
+            result = SortArray(less).Concat(SortArray(same)).Concat(SortArray(greater)).ToList();
 
-            return array;
+            return result;
         }
 
-        //public static List<T> SortArray<T>(this List<T> array)
-        //{
-        //	List<T> result = array;
-        //	Comparison<T> Comparer = new Comparison<T>(CompareToPivot);
-        //	result.Sort(Comparer);
-        //	return result;
-        //}
+        public static List<T> SortArray<T>(this List<T> array, int low, int high, Comparison<T> comparison)
+        {
+            List<T> result = new List<T>();
+            if (low < high)
+            {
+                int pivotIndex = Partition(array, low, high, comparison);
+
+                SortArray(array, low, pivotIndex - 1, comparison);
+                SortArray(array, pivotIndex + 1, high, comparison);
+            }
+            result = array;
+            return result;
+        }
+        private static int Partition<T>(List<T> array, int low, int high, Comparison<T> comparison)
+        {
+            T pivot = array[high];
+            int i = low - 1;
+
+            for (int j = low; j <= high - 1; j++)
+            {
+                if (comparison(array[j], pivot) <= 0)
+                {
+                    i++;
+
+                    T temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+
+            T temp2 = array[i + 1];
+            array[i + 1] = array[high];
+            array[high] = temp2;
+
+            return i + 1;
+        }
     }
 }
 

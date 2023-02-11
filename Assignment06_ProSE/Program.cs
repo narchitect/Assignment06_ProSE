@@ -16,7 +16,8 @@ namespace Assignment06_ProSE
 
             // 2. Testing the generalised QuickSort Method
             List<double> testset2 = new List<double> { 1.2, 3.2, 5.2, 1.5, 8.4, 2.2, 5.2, 0.3 };
-            var result2 = testset2.SortArray(0, testset2.Count()-1);
+            Comparison<double> comparison = (a, b) => a.CompareTo(b);
+            var result2 = testset2.SortArray(0, testset2.Count()-1, comparison);
             result2.Print();
 
         }
